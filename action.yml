@@ -1,0 +1,31 @@
+name: Composite Action
+description: Update description for your Composite Action.
+
+inputs:
+  update-me:
+    default: "Hello, world."
+    required: false
+    description: "Update inputs for your Composite Action."
+
+outputs:
+  update-me:
+    description: "Update outputs for your Composite Action."
+    value: ${{ steps.main.outputs.result }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: Update steps for your Composite Action.
+      shell: bash
+      id: main
+      env:
+        UPDATE_ME: ${{ inputs.update-me }}
+      run: |
+        echo "Input parameter is '${UPDATE_ME}'"
+        echo "::set-output name=result::${UPDATE_ME}"
+
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#branding
+branding:
+  icon: "award"
+  color: "green"
