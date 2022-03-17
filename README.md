@@ -2,11 +2,39 @@
 
 A template of the Composite Action.
 
+## Getting Started
+
+### Creating a repository from a template
+
+1. Above the file list, click `Use this template`.
+2. Use the Owner drop-down menu, and select the account you want to own the repository.
+3. Type a name for your repository, and an optional description.
+4. Choose a repository visibility.
+5. Click `Create repository from template`.
+
+Then, you can generate a new repository with the same directory structure and files as this repository.
+
+### Creating a new Composite Action
+
+Write code for the new Composite Action to the following files:
+
+- [action.yml](/action.yml)
+- [test.yml](/.github/workflows/test.yml)
+
+See details: [GitHub documentation](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action).
+
+### Updating the README
+
+Write `README.md` with usage, inputs, outputs, environment variables, `GITHUB_TOKEN` permissions
+for your Composite Action.
+
+A template of the `README.md` is under the horizontal rule.
+
 ---
 
 ## Description
 
-Update `README.md` with usage, inputs, outputs, environment variables, `GITHUB_TOKEN` permissions, and so on.
+Fix me.
 
 ## Usage
 
