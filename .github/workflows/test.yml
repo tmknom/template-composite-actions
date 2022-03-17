@@ -1,0 +1,45 @@
+name: Test
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test.yml"
+  pull_request:
+    paths:
+      - "action.yml"
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FIXTURES: ".github/fixtures"
+
+jobs:
+  test-template:
+    name: Test template
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check fixtures directory
+        run: ls "${FIXTURES}"
+      - name: Run action without inputs
+        uses: ./
+        id: without-inputs
+      - name: Verify for test without inputs
+        env:
+          RESULT: ${{ steps.without-inputs.outputs.update-me }}
+        run: test "${RESULT}" = "Hello, world."
+      - name: Run action with inputs
+        uses: ./
+        id: with-inputs
+        with:
+          update-me: "Hello, test."
+      - name: Verify for test with inputs
+        env:
+          RESULT: ${{ steps.with-inputs.outputs.update-me }}
+        run: test "${RESULT}" = "Hello, test."
