@@ -23,6 +23,10 @@ Write code for the new Composite Action to the following files:
 
 See details: [GitHub documentation](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action).
 
+### Updating the CODEOWNERS
+
+Update [CODEOWNERS](/.github/CODEOWNERS) to define individuals or teams that are responsible for code in a repository.
+
 ### Updating the README
 
 Write `README.md` with usage, inputs, outputs, environment variables, `GITHUB_TOKEN` permissions
