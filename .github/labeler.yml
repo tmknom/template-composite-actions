@@ -1,0 +1,15 @@
+action:
+  - "action.yml"
+
+github:
+  - ".github/**/*"
+
+docs:
+  - "**/*.md"
+
+chore:
+  - "Makefile"
+  - "VERSION"
+  - ".gitignore"
+  - ".markdownlint.yml"
+  - ".yamllint.yml"
