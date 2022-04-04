@@ -62,6 +62,7 @@ PRETTIER ?= $(REGISTRY)/prettier:latest
 MARKDOWNLINT ?= $(REGISTRY)/markdownlint:latest
 YAMLLINT ?= $(REGISTRY)/yamllint:latest
 ACTIONLINT ?= rhysd/actionlint:latest
+ACTDOCS ?= ghcr.io/tmknom/actdocs:latest
 
 #
 # Lint
@@ -101,7 +102,14 @@ format-yaml: ## format yaml by prettier
 # Documentation management
 #
 .PHONY: docs
-docs: ## update documents
+docs: docs-version docs-action format-markdown ## update documents
+
+.PHONY: docs-action
+docs-action:
+	$(SECURE_DOCKER_RUN) $(ACTDOCS) inject --sort --file=README.md action.yml
+
+.PHONY: docs-version
+docs-version:
 	version="$$(cat VERSION)" && \
 	awk -v action_version="action@v$${version}" \
 	    '{sub(/action@v[0-9]+\.[0-9]+\.[0-9]+/, action_version, $$0); print $$0}' \
