@@ -48,6 +48,8 @@ Fix me.
     param: "Update usage"
 ```
 
+<!-- actdocs start -->
+
 ## Inputs
 
 N/A
@@ -55,6 +57,8 @@ N/A
 ## Outputs
 
 N/A
+
+<!-- actdocs end -->
 
 ## Environment variables
 
