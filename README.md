@@ -1,6 +1,6 @@
 # template-composite-actions
 
-A template of the Composite Actions, see [Usage](https://github.com/tmknom/template-composite-actions/wiki/Usage).
+A template of the Composite Actions, see [Usage at Wiki](https://github.com/tmknom/template-composite-actions/wiki/Usage).
 
 <!-- actdocs start -->
 
