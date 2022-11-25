@@ -1,22 +1,8 @@
-name: Lint YAML
+name: Lint
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - ".github/workflows/lint-yaml.yml"
   pull_request:
-    paths:
-      - "**.yml"
-      - "**.yaml"
-
-permissions: {}
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
+    paths: ["**.yml", "**.yaml"]
 jobs:
-  lint-yaml:
-    uses: tmknom/workflows/.github/workflows/lint-yaml.yml@v1
-    with:
-      yamllint-config: ".yamllint.yml"
+  lint:
+    uses: tmknom/github-actions-workflows/.github/workflows/lint.yml@v0
