@@ -3,14 +3,14 @@ on:
   workflow_dispatch:
     inputs:
       level:
+        default: "minor"
+        required: false
         type: choice
-        required: true
-        description: "bump to [major|minor|patch]"
         options:
           - "major"
           - "minor"
           - "patch"
-        default: "minor"
+        description: "bump to [major|minor|patch]"
 jobs:
   release:
     uses: tmknom/github-actions-workflows/.github/workflows/release.yml@v0
